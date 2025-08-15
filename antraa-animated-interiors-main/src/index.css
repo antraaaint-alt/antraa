@@ -1,0 +1,250 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ANTRAA Interior Design - Luxury Design System */
+
+@layer base {
+  :root {
+    /* Core Brand Colors */
+    --background: 35 20% 98%;
+    --foreground: 25 25% 15%;
+
+    /* Card & Surface Colors */
+    --card: 0 0% 100%;
+    --card-foreground: 25 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 25% 15%;
+
+    /* Primary - Rich Gold */
+    --primary: 45 85% 55%;
+    --primary-foreground: 25 25% 15%;
+    --primary-glow: 45 90% 65%;
+
+    /* Secondary - Warm Neutral */
+    --secondary: 35 15% 92%;
+    --secondary-foreground: 25 25% 15%;
+
+    /* Muted Tones */
+    --muted: 35 12% 88%;
+    --muted-foreground: 25 15% 45%;
+
+    /* Accent - Deep Blue */
+    --accent: 220 25% 25%;
+    --accent-foreground: 35 20% 98%;
+
+    /* Luxury Palette */
+    --luxury-cream: 40 25% 96%;
+    --luxury-beige: 35 20% 85%;
+    --luxury-charcoal: 25 15% 20%;
+    --luxury-gold: 45 85% 55%;
+    --luxury-bronze: 30 40% 35%;
+
+    /* State Colors */
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 35 20% 98%;
+
+    /* Interactive Elements */
+    --border: 35 15% 85%;
+    --input: 35 15% 90%;
+    --ring: 45 85% 55%;
+
+    /* Design Elements */
+    --radius: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--luxury-cream)), hsl(var(--luxury-beige)));
+    --gradient-elegant: linear-gradient(180deg, hsl(var(--background)), hsl(var(--luxury-cream)));
+    --gradient-gold: linear-gradient(90deg, hsl(var(--luxury-gold)), hsl(var(--primary-glow)));
+
+    /* Shadows */
+    --shadow-elegant: 0 20px 40px -10px hsl(var(--luxury-charcoal) / 0.1);
+    --shadow-hover: 0 25px 50px -15px hsl(var(--luxury-charcoal) / 0.15);
+    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 25 25% 8%;
+    --foreground: 35 20% 95%;
+
+    --card: 25 20% 12%;
+    --card-foreground: 35 20% 95%;
+
+    --popover: 25 20% 12%;
+    --popover-foreground: 35 20% 95%;
+
+    --primary: 45 85% 60%;
+    --primary-foreground: 25 25% 8%;
+    --primary-glow: 45 90% 70%;
+
+    --secondary: 25 15% 18%;
+    --secondary-foreground: 35 20% 95%;
+
+    --muted: 25 12% 22%;
+    --muted-foreground: 35 15% 65%;
+
+    --accent: 45 85% 60%;
+    --accent-foreground: 25 25% 8%;
+
+    --luxury-cream: 25 15% 15%;
+    --luxury-beige: 25 12% 22%;
+    --luxury-charcoal: 35 20% 85%;
+    --luxury-gold: 45 85% 60%;
+    --luxury-bronze: 30 40% 70%;
+
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 35 20% 95%;
+
+    --border: 25 15% 20%;
+    --input: 25 15% 18%;
+    --ring: 45 85% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "kern" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Hero Section Styles */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .elegant-gradient {
+    background: var(--gradient-elegant);
+  }
+
+  .gold-gradient {
+    background: var(--gradient-gold);
+  }
+
+  /* Animation Classes */
+  .fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .slide-in-left {
+    animation: slideInLeft 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  .slide-in-right {
+    animation: slideInRight 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  .slide-in-up {
+    animation: slideInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .zoom-in {
+    animation: zoomIn 0.6s ease-out forwards;
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+
+  /* Interactive Elements */
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .parallax-element {
+    will-change: transform;
+  }
+
+  /* Typography */
+  .text-gradient {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes typewriter {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  0%, 50% { border-color: transparent; }
+  51%, 100% { border-color: hsl(var(--primary)); }
+}
